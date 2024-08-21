@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# FIRST DEFAULT, SECOND IS BOOK RECOMMENDATION
+
 if gem list --no-installed --exact --silent foreman; then
   echo "Installing foreman..."
   gem install foreman
@@ -9,3 +11,11 @@ fi
 export PORT="${PORT:-3000}"
 
 exec foreman start -f Procfile.dev --env /dev/null "$@"
+
+# if ! command -v foreman &> /dev/null
+# then
+#   echo "Installing foreman..."
+#   gem install foreman
+# fi
+
+# foreman start -f Procfile.dev
